@@ -4,25 +4,139 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>SpaceLogo — استوديو الشعارات التفاعلي</title>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;600&family=Tajawal:wght@500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
   <style>
-    :root { --accent: #ff6b35; --bg: #0a0a0f; }
+    :root {
+      --orange: #ff6b35;
+      --orange-l: #ff8c42;
+      --teal: #00e5ff;
+      --bg: #07070b;
+      --surface: rgba(18,18,24,0.75);
+    }
     * { margin:0; padding:0; box-sizing:border-box; }
-    body { font-family: 'Tajawal', 'Inter', sans-serif; background:#0a0a0f; color:#f5f5f7; }
-    .hero { min-height:100vh; display:flex; align-items:center; justify-content:center; text-align:center; background:radial-gradient(ellipse at 30% 20%, rgba(255,107,53,0.25) 0%, transparent 50%), radial-gradient(ellipse at 70% 80%, rgba(0,212,255,0.15) 0%, #0a0a0f 70%); padding:40px 20px; }
-    h1 { font-family:'Space Grotesk',sans-serif; font-size:clamp(3.5rem,8vw,6.5rem); font-weight:700; background:linear-gradient(90deg,#fff,#ff6b35); -webkit-background-clip:text; -webkit-text-fill-color:transparent; margin-bottom:16px; }
-    p { font-size:1.3rem; color:#a0a0b0; max-width:600px; margin:0 auto 32px; }
-    .cta { display:inline-block; background:linear-gradient(90deg,#ff6b35,#ff8c42); color:#fff; padding:16px 40px; border-radius:50px; text-decoration:none; font-weight:700; font-size:1.1rem; box-shadow:0 10px 40px rgba(255,107,53,0.4); transition:all 0.3s; }
-    .cta:hover { transform:translateY(-3px); box-shadow:0 15px 50px rgba(255,107,53,0.5); }
+    body { font-family: 'Tajawal', 'Inter', sans-serif; background: var(--bg); color: #f8f8fa; overflow-x: hidden; }
+    .hero {
+      min-height: 100vh;
+      display: flex; align-items: center; justify-content: center; text-align: center;
+      background: radial-gradient(ellipse at 25% 20%, rgba(255,107,53,0.28) 0%, transparent 45%),
+                  radial-gradient(ellipse at 75% 80%, rgba(0,229,255,0.12) 0%, transparent 50%),
+                  #07070b;
+      padding: 60px 24px;
+      position: relative;
+    }
+    .hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="60" height="60"><circle cx="30" cy="30" r="1" fill="rgba(255,255,255,0.03)"/></svg>');
+      opacity: 0.5;
+    }
+    .hero-content { position: relative; z-index: 1; max-width: 900px; }
+    .badge {
+      display: inline-block; background: rgba(255,107,53,0.15); border: 1px solid rgba(255,107,53,0.4);
+      color: var(--orange); padding: 8px 20px; border-radius: 50px; font-size: 0.85rem; font-weight: 600;
+      margin-bottom: 24px; letter-spacing: 1px;
+    }
+    h1 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(3.5rem, 9vw, 7.5rem);
+      font-weight: 700;
+      line-height: 0.95;
+      background: linear-gradient(90deg, #ffffff 0%, var(--orange) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 20px;
+      letter-spacing: -2px;
+    }
+    .hero p {
+      font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+      color: #b0b0c0;
+      max-width: 640px;
+      margin: 0 auto 36px;
+      line-height: 1.7;
+    }
+    .cta {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: linear-gradient(135deg, var(--orange), var(--orange-l));
+      color: #fff; padding: 18px 48px; border-radius: 50px;
+      text-decoration: none; font-weight: 700; font-size: 1.15rem;
+      box-shadow: 0 12px 40px rgba(255,107,53,0.45);
+      transition: all 0.3s cubic-bezier(0.4,0,0.2,1);
+      position: relative; overflow: hidden;
+    }
+    .cta:hover { transform: translateY(-4px); box-shadow: 0 18px 50px rgba(255,107,53,0.55); }
+    .cta::after {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.25), transparent);
+      transform: translateX(-100%); transition: transform 0.7s;
+    }
+    .cta:hover::after { transform: translateX(100%); }
+    .features {
+      padding: 80px 24px;
+      background: linear-gradient(180deg, #07070b, #0f0f16);
+    }
+    .features h2 {
+      text-align: center; font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(2rem, 5vw, 3rem); margin-bottom: 48px; color: #fff;
+    }
+    .grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 24px; max-width: 1100px; margin: 0 auto;
+    }
+    .card {
+      background: var(--surface);
+      border: 1px solid rgba(255,107,53,0.25);
+      border-radius: 24px;
+      padding: 32px 24px;
+      backdrop-filter: blur(12px);
+      transition: all 0.3s;
+    }
+    .card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(255,107,53,0.5);
+      box-shadow: 0 16px 40px rgba(255,107,53,0.15);
+    }
+    .card h3 { font-size: 1.3rem; margin-bottom: 12px; color: #fff; }
+    .card p { color: #a0a0b0; line-height: 1.6; font-size: 0.95rem; }
+    .footer {
+      text-align: center; padding: 40px 20px; color: #666; font-size: 0.9rem;
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
   </style>
 </head>
 <body>
-  <div class="hero">
-    <div>
+  <section class="hero">
+    <div class="hero-content">
+      <div class="badge">INTERACTIVE 3D STUDIO</div>
       <h1>SpaceLogo</h1>
-      <p>استوديو شعارات فضائية تفاعلية ثلاثية الأبعاد — بتصميم داكن أنيق مع لمسات برتقالية.</p>
-      <a href="tool.html" class="cta">ابدأ التصميم الآن</a>
+      <p>استوديو شعارات فضائية تفاعلية ثلاثية الأبعاد. صمم، حرّك، وعدّل حروفك بتجربة بصرية داكنة أنيقة مع لمسات برتقالية متوهجة.</p>
+      <a href="tool.html" class="cta">ابدأ التصميم الآن →</a>
     </div>
-  </div>
+  </section>
+
+  <section class="features">
+    <h2>تجربة تصميم متكاملة</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>تحكم ثلاثي الأبعاد</h3>
+        <p>اسحب، دوّر، وكبّر الحروف بحرية كاملة مع استجابة فورية وحركات سلسة.</p>
+      </div>
+      <div class="card">
+        <h3>خطوط احترافية</h3>
+        <p>مجموعة خطوط عربية وإنجليزية مختارة بعناية لتصميم شعارات مميزة.</p>
+      </div>
+      <div class="card">
+        <h3>خلفية ذكية</h3>
+        <p>أضف فيديو أو صورة خلفية، مع تأثيرات ضبابية وإضاءة ديناميكية.</p>
+      </div>
+      <div class="card">
+        <h3>تصدير سريع</h3>
+        <p>احفظ تصميمك كصورة عالية الجودة بنقرة واحدة.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    SpaceLogo • صُمم بإبداع من أجل مصممي الشعارات
+  </footer>
 </body>
 </html>
