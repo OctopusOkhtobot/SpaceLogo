@@ -1,24 +1,21 @@
 # SpaceLogo
 
-**استوديو الشعارات التفاعلي ثلاثي الأبعاد**
+استوديو شعار تفاعلي. الواجهات (البداية، كتابة الشعار، التنسيق، ولوحة التحريك) على ثيم داكن ببرتقالي وتيل.
 
-تصميم داكن أنيق مستوحى من أحدث التوجهات البصرية، مع لمسات برتقالية متوهجة وخطوط حديثة وحركات سلسة.
+## التشغيل
 
-## التشغيل المباشر
+[افتح الأداة](https://octopusokhtobot.github.io/SpaceLogo/tool.html)
 
-**جرّب الأداة الآن:**  
-[https://octopusochtokobot.github.io/SpaceLogo/tool.html](https://octopusochtokobot.github.io/SpaceLogo/tool.html)
+[الصفحة الرئيسية](https://octopusokhtobot.github.io/SpaceLogo/)
 
-أو من الصفحة الرئيسية:  
-[https://octopusochtokobot.github.io/SpaceLogo/](https://octopusochtokobot.github.io/SpaceLogo/)
+## مجلد الخطوط
 
-## المميزات
+الخطوط المحلية هنا، بنفس فكرة المستودع القديم:
 
-- تحكم ثلاثي الأبعاد كامل بالحروف
-- خطوط عربية وإنجليزية احترافية
-- خلفية ديناميكية (صورة / فيديو)
-- ثيم داكن مع إضاءة برتقالية
-- تصدير سريع للتصاميم
+[`fonts/`](fonts/)
 
----
-*صُمم بإبداع • SpaceLogo*
+الإنجليزية: Orbitron, Bebas Neue, Montserrat, Cinzel, Playfair Display, Black Ops One, **Anton, Oswald, Russo One**
+
+العربية: Cairo, Reem Kufi, Noto Kufi Arabic, Tajawal, Amiri, El Messiri, **Changa, Almarai**
+
+خطوط الواجهة: Space Grotesk, Outfit

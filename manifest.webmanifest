@@ -1,0 +1,11 @@
+{
+  "name": "SpaceLogo",
+  "short_name": "SpaceLogo",
+  "description": "Interactive logo studio — dark athletic theme.",
+  "start_url": "./tool.html",
+  "display": "standalone",
+  "background_color": "#070708",
+  "theme_color": "#070708",
+  "lang": "ar",
+  "icons": []
+}
