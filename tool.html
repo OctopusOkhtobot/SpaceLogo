@@ -1009,8 +1009,198 @@
 
 
 </style>
+
+<style>
+/* stage chrome: compact modern controls + mock scenes + car buttons */
+#mockDock{
+  position:fixed; top:62px; left:14px; z-index:120;
+  display:flex; flex-direction:column; gap:6px;
+  padding:6px;
+  background:rgba(8,8,10,.62);
+  border:1px solid rgba(255,255,255,.10);
+  border-radius:14px;
+  backdrop-filter:blur(14px);
+  box-shadow:0 10px 24px rgba(0,0,0,.35);
+}
+.mockSwatch{
+  width:22px; height:22px; padding:0; border-radius:7px;
+  border:1px solid rgba(255,255,255,.28);
+  cursor:pointer; position:relative;
+}
+.mockSwatch.on{ box-shadow:0 0 0 1px #fff, 0 0 10px rgba(255,106,26,.45); }
+.mockSwatch[data-mock="ember"]{ background:linear-gradient(160deg,#ff8a3d,#1a100c 72%); }
+.mockSwatch[data-mock="carbon"]{ background:radial-gradient(circle at 30% 30%, #ff6a1a 0 18%, #1b1c20 19% 100%); }
+.mockSwatch[data-mock="tide"]{ background:linear-gradient(160deg,#3ee0c5,#102033 70%); }
+.mockSwatch[data-mock="aurora"]{ background:linear-gradient(145deg,#ff6a1a,#6a4cff 48%,#3ee0c5); }
+.mockSwatch[data-mock="track"]{ background:linear-gradient(#101114 0 42%, #ff6a1a 48% 52%, #3ee0c5 54%, #101114 62%); }
+#mockPattern{
+  position:fixed; inset:0; z-index:-1; pointer-events:none;
+  opacity:.55;
+  background-image:repeating-linear-gradient(118deg, transparent 0 22px, rgba(255,255,255,.035) 22px 23px);
+  animation:patternDrift 16s linear infinite;
+  mask-image:radial-gradient(ellipse at 50% 42%, #000 10%, transparent 72%);
+}
+@keyframes patternDrift{ to{ background-position:160px 90px; } }
+body[data-mock="photo"] #mockPattern,
+body.bg-clear #mockPattern{ opacity:0; }
+
+body[data-mock="ember"] #blackBase{
+  background:
+    radial-gradient(ellipse 72% 46% at 50% -8%, rgba(255,106,26,.62), transparent 62%),
+    radial-gradient(ellipse 34% 26% at 92% 100%, rgba(62,224,197,.22), transparent 70%),
+    linear-gradient(180deg,#1c120c 0%, #070708 68%) !important;
+  animation:stageGlow 9s ease-in-out infinite alternate;
+}
+body[data-mock="carbon"] #blackBase{
+  background:
+    radial-gradient(circle at 18% 20%, rgba(255,106,26,.28), transparent 26%),
+    radial-gradient(circle at 78% 72%, rgba(62,224,197,.16), transparent 28%),
+    repeating-linear-gradient(60deg, rgba(255,255,255,.035) 0 1px, transparent 1px 14px),
+    repeating-linear-gradient(-60deg, rgba(255,255,255,.03) 0 1px, transparent 1px 14px),
+    #0b0c10 !important;
+  animation:none;
+}
+body[data-mock="tide"] #blackBase{
+  background:
+    radial-gradient(ellipse 50% 40% at 12% 88%, rgba(62,224,197,.38), transparent 64%),
+    radial-gradient(ellipse 42% 32% at 88% 8%, rgba(255,106,26,.28), transparent 66%),
+    linear-gradient(160deg,#07141c,#07080c 60%) !important;
+  animation:stageGlow 11s ease-in-out infinite alternate;
+}
+body[data-mock="aurora"] #blackBase{
+  background:
+    radial-gradient(ellipse 42% 34% at 18% 78%, rgba(255,90,20,.62), transparent 62%),
+    radial-gradient(ellipse 38% 30% at 82% 18%, rgba(62,224,197,.45), transparent 64%),
+    radial-gradient(ellipse 30% 24% at 58% 52%, rgba(110,60,255,.32), transparent 70%),
+    #07060c !important;
+  background-size:140% 140%, 140% 140%, 140% 140%, auto !important;
+  animation:auroraShift 12s ease-in-out infinite alternate !important;
+}
+@keyframes auroraShift{
+  from{ background-position:0% 80%, 100% 0%, 40% 40%, 0 0; }
+  to{ background-position:40% 20%, 50% 70%, 70% 20%, 0 0; }
+}
+body[data-mock="track"] #blackBase{
+  background:
+    linear-gradient(180deg, transparent 46%, rgba(255,106,26,.85) 49.4%, rgba(62,224,197,.8) 50.6%, transparent 54%),
+    radial-gradient(ellipse 80% 30% at 50% 50%, rgba(255,106,26,.2), transparent 70%),
+    repeating-linear-gradient(90deg, transparent 0 46px, rgba(255,255,255,.04) 46px 47px),
+    #070708 !important;
+  background-size:auto, auto, 180px 100%, auto !important;
+  animation:trackMove 7s linear infinite !important;
+}
+@keyframes trackMove{ to{ background-position:0 0, 0 0, -180px 0, 0 0; } }
+body[data-mock="photo"] #blackBase{ animation:none !important; }
+
+#resetBtn, #homeBtn, .iconBtn{
+  position:relative; overflow:hidden;
+  width:36px; height:36px; border-radius:10px;
+  background:linear-gradient(180deg, rgba(46,46,52,.95), rgba(12,12,14,.96));
+  border:1px solid rgba(255,255,255,.16);
+  color:#f4f1ec;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.22), 0 6px 14px rgba(0,0,0,.38);
+  font-size:14px;
+}
+#resetBtn svg, #homeBtn svg, .iconBtn svg{ position:relative; z-index:1; display:block; pointer-events:none; }
+#resetBtn::after, #homeBtn::after, .iconBtn::after{
+  content:""; position:absolute; inset:0; pointer-events:none;
+  background:linear-gradient(115deg, transparent 32%, rgba(255,255,255,.34) 50%, transparent 68%);
+  transform:translateX(-130%);
+  animation:btnSheen 4.6s ease-in-out infinite;
+}
+#iconRow .iconBtn:nth-child(2)::after{ animation-delay:.4s; }
+#iconRow .iconBtn:nth-child(3)::after{ animation-delay:.8s; }
+#iconRow .iconBtn:nth-child(4)::after{ animation-delay:1.2s; }
+#iconRow .iconBtn:nth-child(5)::after{ animation-delay:1.6s; }
+#iconRow .iconBtn:nth-child(6)::after{ animation-delay:2s; }
+#iconRow .iconBtn:nth-child(7)::after{ animation-delay:2.4s; }
+#iconRow .iconBtn:nth-child(8)::after{ animation-delay:2.8s; }
+@keyframes btnSheen{
+  0%,62%{ transform:translateX(-130%); }
+  86%,100%{ transform:translateX(130%); }
+}
+.iconBtn.active, #resetBtn:active, #homeBtn:active{
+  background:linear-gradient(180deg,#ff8a3d,#ff5a12);
+  color:#1a0d06; border-color:transparent;
+}
+#zoomPanel, #letterPanel{
+  padding:5px 10px; gap:8px; border-radius:16px;
+}
+#zoomSlider{ width:74px; }
+.panelRow input[type=range]{ width:58px; }
+.zoomBtn, #infoBtn{ width:22px; height:22px; border-radius:7px; font-size:13px; }
+#zoomPanel input[type=range], #letterPanel input[type=range]{
+  -webkit-appearance:none; appearance:none; background:transparent; height:14px;
+}
+#zoomPanel input[type=range]::-webkit-slider-runnable-track,
+#letterPanel input[type=range]::-webkit-slider-runnable-track{
+  height:2px; border-radius:2px;
+  background:linear-gradient(90deg,#ff6a1a,#3ee0c5);
+}
+#zoomPanel input[type=range]::-webkit-slider-thumb,
+#letterPanel input[type=range]::-webkit-slider-thumb{
+  -webkit-appearance:none; width:11px; height:11px; margin-top:-5px;
+  border-radius:4px; background:#f6f3ef; border:1px solid rgba(0,0,0,.35);
+  box-shadow:0 0 0 3px rgba(255,106,26,.22);
+}
+
+body.car-ui #resetBtn,
+body.car-ui #homeBtn,
+body.car-ui .iconBtn,
+body.car-ui .zoomBtn,
+body.car-ui #infoBtn{
+  border-radius:7px;
+  background:linear-gradient(180deg,#3a3e46 0%, #1a1d22 48%, #0e1013 100%);
+  border:1px solid #8b9098;
+  color:#f3f1ee;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.45), inset 0 -3px 5px rgba(0,0,0,.55), 0 1px 0 rgba(255,255,255,.12);
+}
+body.car-ui .iconBtn.active{
+  color:#1a0d06;
+  background:linear-gradient(180deg,#ffb07a,#ff6a1a);
+  border-color:#ffd7bf;
+}
+body.car-ui #resetBtn::before,
+body.car-ui #homeBtn::before,
+body.car-ui .iconBtn::before{
+  content:""; position:absolute; z-index:2;
+  width:8px; height:2px; border-radius:2px;
+  left:50%; bottom:3px; transform:translateX(-50%);
+  background:#ff6a1a; box-shadow:0 0 6px #ff6a1a;
+  animation:ledPulse 2.2s ease-in-out infinite;
+  pointer-events:none;
+}
+body.car-ui .iconBtn.active::before{ background:#08332c; box-shadow:none; }
+@keyframes ledPulse{ 0%,100%{ opacity:.3 } 50%{ opacity:1 } }
+body.car-ui #resetBtn::after,
+body.car-ui #homeBtn::after,
+body.car-ui .iconBtn::after{
+  background:
+    repeating-linear-gradient(135deg, transparent 0 3px, rgba(255,255,255,.18) 3px 4px),
+    linear-gradient(100deg, transparent 20%, rgba(255,176,110,.55) 50%, transparent 80%);
+  background-size:10px 10px, 220% 100%;
+  animation:carSweep 2.6s linear infinite;
+}
+@keyframes carSweep{
+  from{ background-position:0 0, -140% 0; }
+  to{ background-position:20px 20px, 140% 0; }
+}
+body.car-ui #zoomPanel,
+body.car-ui #letterPanel{
+  background:linear-gradient(180deg, rgba(34,36,42,.88), rgba(10,11,13,.9));
+  border:1px solid rgba(180,186,194,.35);
+  border-radius:12px;
+}
+body.car-ui #zoomPanel input[type=range]::-webkit-slider-thumb,
+body.car-ui #letterPanel input[type=range]::-webkit-slider-thumb{
+  width:8px; height:14px; border-radius:2px; margin-top:-6px;
+  background:linear-gradient(180deg,#f7f7f7,#8e949c);
+  box-shadow:inset 0 1px 0 #fff;
+}
+</style>
+
 </head>
-<body>
+<body data-mock="ember">
 
 <div id="introScreen">
   <div id="introInner">
@@ -1189,6 +1379,7 @@
 </div>
 
 <div id="iconRow">
+  <div class="iconBtn" id="carThemeBtn" title="أزرار السيارة"><svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true"><path fill="currentColor" d="M6.2 15.2c0-.9.7-1.6 1.6-1.6h8.4c.9 0 1.6.7 1.6 1.6V17H6.2v-1.8zM7.4 11l1-2.7c.3-.7.9-1.1 1.6-1.1h4c.7 0 1.3.4 1.6 1.1l1 2.7H7.4zM8 17.2a1.3 1.3 0 1 0 0 2.6 1.3 1.3 0 0 0 0-2.6zm8 0a1.3 1.3 0 1 0 0 2.6 1.3 1.3 0 0 0 0-2.6z"/></svg></div>
   <div class="iconBtn" id="soundToggle" title="Sound">🔊</div>
   <div class="iconBtn" id="launchBtn" title="Launch Mode">🚀</div>
   <div class="iconBtn spinBtn" id="spinBtn" title="Sequential axis spin — slow, then fast, settle">🔄</div>
@@ -1199,6 +1390,16 @@
 </div>
 <input type="file" id="videoInput" accept="image/*,video/*" style="position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0;">
 <div id="blackBase"></div>
+
+<div id="mockDock" aria-label="مشاهد جاهزة">
+  <button type="button" class="mockSwatch on" data-mock="ember" title="جمرة"></button>
+  <button type="button" class="mockSwatch" data-mock="carbon" title="كربون"></button>
+  <button type="button" class="mockSwatch" data-mock="tide" title="موج"></button>
+  <button type="button" class="mockSwatch" data-mock="aurora" title="شفق"></button>
+  <button type="button" class="mockSwatch" data-mock="track" title="مسار ليلي"></button>
+</div>
+<div id="mockPattern"></div>
+
 <video id="bgVideo" autoplay loop muted playsinline></video>
 <img id="bgImage" alt="">
 <div id="bgDim"></div>
@@ -3617,6 +3818,17 @@ document.querySelectorAll('.letter').forEach(el=>{
 // ---------- background media: photo or video ----------
 let bgMediaURL = null;
 
+let sceneMock = 'ember';
+function paintMock(name){
+  sceneMock = name;
+  document.body.dataset.mock = name;
+  document.body.classList.remove('bg-clear');
+  bgTransparent = false;
+  blackBase.style.background = '';
+  bgToggle.textContent = '⬛';
+  bgToggle.classList.remove('active');
+  document.querySelectorAll('.mockSwatch').forEach(b=>b.classList.toggle('on', b.dataset.mock===name));
+}
 function clearBgMedia(){
   bgVideo.pause();
   bgVideo.classList.remove('active');
@@ -3627,6 +3839,7 @@ function clearBgMedia(){
   if(bgMediaURL){ URL.revokeObjectURL(bgMediaURL); bgMediaURL = null; }
   bgVideo.removeAttribute('src');
   bgImage.removeAttribute('src');
+  if(document.body.dataset.mock==='photo') paintMock(sceneMock || 'ember');
 }
 
 videoToggle.addEventListener('click', (e)=>{
@@ -3659,6 +3872,8 @@ videoInput.addEventListener('change', (e)=>{
   bgDim.classList.add('active');
   videoToggle.classList.add('active');
   videoToggle.textContent = '✕';
+  document.body.dataset.mock = 'photo';
+  document.querySelectorAll('.mockSwatch').forEach(b=>b.classList.remove('on'));
   blip({freq:520, dur:0.09, type:'triangle', gain:0.045, sweep:100});
   videoInput.value = '';
 });
@@ -3672,13 +3887,26 @@ infoBtn.addEventListener('click', ()=>{
 let bgTransparent = false;
 bgToggle.addEventListener('click', ()=>{
   bgTransparent = !bgTransparent;
-  blackBase.style.background = bgTransparent ? 'transparent' : 'radial-gradient(ellipse at 50% 40%, #0a0a0c 0%, #000 70%)';
-  // We keep document background transparent to allow bgVideo/bgImage (z-index: -2) to be visible
+  document.body.classList.toggle('bg-clear', bgTransparent);
+  blackBase.style.background = bgTransparent ? 'transparent' : '';
   document.documentElement.style.background = 'transparent';
   document.body.style.background = 'transparent';
   bgToggle.textContent = bgTransparent ? '◻' : '⬛';
   bgToggle.classList.toggle('active', bgTransparent);
   blip({freq: bgTransparent ? 700 : 400, dur:0.07, type:'sine', gain:0.04});
+});
+
+document.querySelectorAll('.mockSwatch').forEach(btn=>{
+  btn.addEventListener('click', ()=>{
+    if(bgVideo.classList.contains('active') || bgImage.classList.contains('active')) clearBgMedia();
+    paintMock(btn.dataset.mock);
+    blip({freq:480, dur:0.08, type:'triangle', gain:0.04, sweep:80});
+  });
+});
+document.getElementById('carThemeBtn').addEventListener('click', ()=>{
+  const on = document.body.classList.toggle('car-ui');
+  document.getElementById('carThemeBtn').classList.toggle('active', on);
+  blip({freq: on ? 620 : 360, dur:0.07, type:'square', gain:0.03});
 });
 
 // ---------- zoom (whole scene) ----------
