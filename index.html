@@ -3,212 +3,26 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SpaceLogo — صمم شعارات فضائية تفاعلية</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <title>SpaceLogo — استوديو الشعارات التفاعلي</title>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;600&family=Tajawal:wght@500;700&display=swap" rel="stylesheet">
   <style>
-    :root {
-      --bg: #0a0a0f;
-      --surface: #12121a;
-      --text: #f5f5f7;
-      --muted: #a0a0b0;
-      --accent: #3b82f6;
-      --accent2: #f97316;
-      --gradient: linear-gradient(135deg, #1e3a8a 0%, #7c3aed 40%, #f97316 100%);
-    }
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body {
-      font-family: 'Tajawal', 'Inter', sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      overflow-x: hidden;
-    }
-    .hero {
-      min-height: 100vh;
-      background: var(--gradient);
-      position: relative;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 40px 20px;
-      overflow: hidden;
-    }
-    .hero::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(ellipse at 30% 20%, rgba(59,130,246,0.4) 0%, transparent 50%),
-                  radial-gradient(ellipse at 70% 80%, rgba(249,115,22,0.3) 0%, transparent 50%);
-      animation: pulse 12s ease-in-out infinite alternate;
-    }
-    @keyframes pulse {
-      0% { opacity: 0.6; transform: scale(1); }
-      100% { opacity: 1; transform: scale(1.05); }
-    }
-    .hero-content {
-      position: relative;
-      z-index: 2;
-      max-width: 900px;
-    }
-    .badge {
-      display: inline-block;
-      background: rgba(255,255,255,0.15);
-      backdrop-filter: blur(10px);
-      border: 1px solid rgba(255,255,255,0.2);
-      padding: 8px 20px;
-      border-radius: 50px;
-      font-size: 14px;
-      margin-bottom: 24px;
-      letter-spacing: 1px;
-    }
-    h1 {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: clamp(3.5rem, 8vw, 7rem);
-      font-weight: 700;
-      line-height: 0.95;
-      margin-bottom: 20px;
-      background: linear-gradient(90deg, #fff 0%, #e0e7ff 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-    .subtitle {
-      font-size: 1.4rem;
-      color: rgba(255,255,255,0.85);
-      max-width: 700px;
-      margin: 0 auto 40px;
-      line-height: 1.6;
-    }
-    .cta {
-      display: inline-flex;
-      align-items: center;
-      gap: 12px;
-      background: #fff;
-      color: #0a0a0f;
-      padding: 16px 36px;
-      border-radius: 50px;
-      text-decoration: none;
-      font-weight: 700;
-      font-size: 1.1rem;
-      transition: all 0.3s;
-      box-shadow: 0 10px 40px rgba(0,0,0,0.3);
-    }
-    .cta:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 20px 50px rgba(0,0,0,0.4);
-    }
-    .section {
-      padding: 100px 20px;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-    h2 {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 3rem;
-      text-align: center;
-      margin-bottom: 60px;
-      background: linear-gradient(90deg, var(--accent), var(--accent2));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-    .features {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 30px;
-    }
-    .feature {
-      background: var(--surface);
-      padding: 40px 30px;
-      border-radius: 20px;
-      border: 1px solid rgba(255,255,255,0.06);
-      transition: transform 0.3s, border-color 0.3s;
-    }
-    .feature:hover {
-      transform: translateY(-8px);
-      border-color: var(--accent);
-    }
-    .feature h3 {
-      font-size: 1.5rem;
-      margin-bottom: 12px;
-      color: var(--accent);
-    }
-    .stats {
-      display: flex;
-      justify-content: center;
-      gap: 60px;
-      flex-wrap: wrap;
-      margin-top: 80px;
-    }
-    .stat {
-      text-align: center;
-    }
-    .stat-num {
-      font-size: 3.5rem;
-      font-weight: 800;
-      color: var(--accent);
-      font-family: 'Space Grotesk', sans-serif;
-    }
-    footer {
-      text-align: center;
-      padding: 40px;
-      color: var(--muted);
-      border-top: 1px solid rgba(255,255,255,0.05);
-    }
-    @media (max-width: 768px) {
-      h1 { font-size: 3.2rem; }
-      .stats { gap: 30px; }
-    }
+    :root { --accent: #ff6b35; --bg: #0a0a0f; }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { font-family: 'Tajawal', 'Inter', sans-serif; background:#0a0a0f; color:#f5f5f7; }
+    .hero { min-height:100vh; display:flex; align-items:center; justify-content:center; text-align:center; background:radial-gradient(ellipse at 30% 20%, rgba(255,107,53,0.25) 0%, transparent 50%), radial-gradient(ellipse at 70% 80%, rgba(0,212,255,0.15) 0%, #0a0a0f 70%); padding:40px 20px; }
+    h1 { font-family:'Space Grotesk',sans-serif; font-size:clamp(3.5rem,8vw,6.5rem); font-weight:700; background:linear-gradient(90deg,#fff,#ff6b35); -webkit-background-clip:text; -webkit-text-fill-color:transparent; margin-bottom:16px; }
+    p { font-size:1.3rem; color:#a0a0b0; max-width:600px; margin:0 auto 32px; }
+    .cta { display:inline-block; background:linear-gradient(90deg,#ff6b35,#ff8c42); color:#fff; padding:16px 40px; border-radius:50px; text-decoration:none; font-weight:700; font-size:1.1rem; box-shadow:0 10px 40px rgba(255,107,53,0.4); transition:all 0.3s; }
+    .cta:hover { transform:translateY(-3px); box-shadow:0 15px 50px rgba(255,107,53,0.5); }
   </style>
 </head>
 <body>
-  <section class="hero">
-    <div class="hero-content">
-      <div class="badge">SpaceLogo™ — Interactive Logo Studio</div>
+  <div class="hero">
+    <div>
       <h1>SpaceLogo</h1>
-      <p class="subtitle">صمم شعارات فضائية تفاعلية ثلاثية الأبعاد. اسحب الحروف، غيّر الخطوط، أضف تأثيرات، وأنشئ شعارًا فريدًا مستوحى من الفضاء.</p>
-      <a href="https://octopusokhtobot.github.io/spacexailogoin/" class="cta">ابدأ التصميم الآن →</a>
+      <p>استوديو شعارات فضائية تفاعلية ثلاثية الأبعاد — بتصميم داكن أنيق مع لمسات برتقالية.</p>
+      <a href="tool.html" class="cta">ابدأ التصميم الآن</a>
     </div>
-  </section>
-
-  <section class="section">
-    <h2>ميزات استوديو الشعارات</h2>
-    <div class="features">
-      <div class="feature">
-        <h3>حروف تفاعلية ثلاثية الأبعاد</h3>
-        <p>اسحب ودوّر كل حرف بشكل مستقل مع تأثيرات إضاءة وعمق.</p>
-      </div>
-      <div class="feature">
-        <h3>خطوط احترافية متعددة</h3>
-        <p>Orbitron, Bebas Neue, Montserrat, Cairo, Tajawal وأكثر.</p>
-      </div>
-      <div class="feature">
-        <h3>تخصيص كامل</h3>
-        <p>غيّر الحجم، الدوران، الألوان، والخلفية بسهولة.</p>
-      </div>
-      <div class="feature">
-        <h3>تصدير سريع</h3>
-        <p>احفظ شعارك كصورة عالية الجودة لمشاركتها أو استخدامها.</p>
-      </div>
-    </div>
-    <div class="stats">
-      <div class="stat">
-        <div class="stat-num">10+</div>
-        <div>خطوط احترافية</div>
-      </div>
-      <div class="stat">
-        <div class="stat-num">3D</div>
-        <div>تفاعل كامل</div>
-      </div>
-      <div class="stat">
-        <div class="stat-num">∞</div>
-        <div>إمكانيات تصميم</div>
-      </div>
-    </div>
-  </section>
-
-  <footer>
-    <p>SpaceLogo by Okhtobot · من درعا</p>
-  </footer>
+  </div>
 </body>
 </html>
