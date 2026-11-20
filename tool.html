@@ -4,7 +4,15 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no">
 <title>SpaceLogo — استوديو الشعار</title>
-<meta name="theme-color" content="#070708">
+<meta name="theme-color" content="#080808">
+<meta property="og:title" content="SpaceLogo — استوديو الشعار">
+<meta property="og:description" content="حرّك الشعار. أسود، ليموني، ومشاهد جاهزة.">
+<meta property="og:image" content="https://octopusokhtobot.github.io/SpaceLogo/og.png">
+<meta property="og:url" content="https://octopusokhtobot.github.io/SpaceLogo/tool.html">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="SpaceLogo — استوديو الشعار">
+<meta name="twitter:description" content="حرّك الشعار. أسود، ليموني، ومشاهد جاهزة.">
+<meta name="twitter:image" content="https://octopusokhtobot.github.io/SpaceLogo/og.png">
 <link rel="manifest" href="manifest.webmanifest">
 <!-- Offline logo fonts (local woff2 — no CDN) -->
 <style>
@@ -38,6 +46,7 @@
   @font-face{font-family:'Outfit';font-style:normal;font-weight:400;font-display:swap;src:url('fonts/Outfit-400.woff2') format('woff2');}
   @font-face{font-family:'Outfit';font-style:normal;font-weight:600;font-display:swap;src:url('fonts/Outfit-600.woff2') format('woff2');}
 
+  @font-face{font-family:'Space Grotesk';font-style:normal;font-weight:300;font-display:swap;src:url('fonts/SpaceGrotesk-300.woff2') format('woff2');}
 </style>
 <style>
   :root{
@@ -1199,6 +1208,29 @@ body.car-ui #letterPanel input[type=range]::-webkit-slider-thumb{
 }
 </style>
 
+
+<style>
+body[data-mock="studio"] #blackBase{
+  background:
+    radial-gradient(ellipse 46% 36% at 88% 0%, rgba(134,146,241,.5), transparent 62%),
+    radial-gradient(ellipse 30% 24% at 8% 100%, rgba(222,255,0,.18), transparent 70%),
+    linear-gradient(180deg,#0E0F1B,#080808 62%) !important;
+  animation:none !important;
+}
+body[data-mock="studio"] #mockPattern{
+  opacity:.8;
+  background-image:repeating-linear-gradient(90deg, transparent 0 72px, rgba(222,255,0,.2) 72px 73px);
+  animation:patternDrift 9s linear infinite;
+}
+.mockSwatch[data-mock="studio"]{background:linear-gradient(160deg,#DEFF00,#0E0F1B 62%)}
+body[data-mock="studio"] #resetBtn,
+body[data-mock="studio"] #homeBtn,
+body[data-mock="studio"] .iconBtn{border-color:rgba(222,255,0,.55)}
+body[data-mock="studio"] .iconBtn.active,
+body[data-mock="studio"] #startBtn{
+  background:#DEFF00 !important;color:#111 !important;border-color:transparent !important;
+}
+</style>
 </head>
 <body data-mock="ember">
 
@@ -1397,6 +1429,7 @@ body.car-ui #letterPanel input[type=range]::-webkit-slider-thumb{
   <button type="button" class="mockSwatch" data-mock="tide" title="موج"></button>
   <button type="button" class="mockSwatch" data-mock="aurora" title="شفق"></button>
   <button type="button" class="mockSwatch" data-mock="track" title="مسار ليلي"></button>
+  <button type="button" class="mockSwatch" data-mock="studio" title="استوديو"></button>
 </div>
 <div id="mockPattern"></div>
 

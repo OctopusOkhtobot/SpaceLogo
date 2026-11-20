@@ -1,8 +1,10 @@
 /* Logo Animator — offline service worker (cache shell + fonts) */
-const CACHE = 'spacelogo-ui-v3';
+const CACHE = 'spacelogo-ui-v4';
 const PRECACHE = [
   './',
   './index.html',
+  './og.png',
+  './fonts/SpaceGrotesk-300.woff2',
   './sw.js',
   './fonts/Orbitron-700.woff2',
   './fonts/Orbitron-900.woff2',

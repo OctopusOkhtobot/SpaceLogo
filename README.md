@@ -1,21 +1,11 @@
 # SpaceLogo
 
-استوديو شعار تفاعلي. الواجهات (البداية، كتابة الشعار، التنسيق، ولوحة التحريك) على ثيم داكن ببرتقالي وتيل.
+استوديو تحريك الشعار. الصفحة العامة سوداء مع ليموني `#DEFF00`، كريمي، وبنفسجي هادئ، ونص Space Grotesk خفيف بجانب وزن ثقيل.
 
-## التشغيل
+## شاركها
 
-[افتح الأداة](https://octopusokhtobot.github.io/SpaceLogo/tool.html)
+[https://octopusokhtobot.github.io/SpaceLogo/](https://octopusokhtobot.github.io/SpaceLogo/)
 
-[الصفحة الرئيسية](https://octopusokhtobot.github.io/SpaceLogo/)
+التحريك: [tool.html](https://octopusokhtobot.github.io/SpaceLogo/tool.html)
 
-## مجلد الخطوط
-
-الخطوط المحلية هنا، بنفس فكرة المستودع القديم:
-
-[`fonts/`](fonts/)
-
-الإنجليزية: Orbitron, Bebas Neue, Montserrat, Cinzel, Playfair Display, Black Ops One, **Anton, Oswald, Russo One**
-
-العربية: Cairo, Reem Kufi, Noto Kufi Arabic, Tajawal, Amiri, El Messiri, **Changa, Almarai**
-
-خطوط الواجهة: Space Grotesk, Outfit
+مشهد **استوديو** داخل صفحة التحريك يستخدم نفس الألوان.

@@ -3,38 +3,106 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>SpaceLogo</title>
+<title>SpaceLogo — استوديو الشعار</title>
+<meta name="description" content="حرّك شعارك على خلفية سوداء وليمونية. مشاهد جاهزة، خطوط عرض، وأزرار تتحول لشكل سيارة.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="SpaceLogo — استوديو الشعار">
+<meta property="og:description" content="أسود، ليموني، ونص ضخم. افتح الاستوديو وحرّك الشعار.">
+<meta property="og:url" content="https://octopusokhtobot.github.io/SpaceLogo/">
+<meta property="og:image" content="https://octopusokhtobot.github.io/SpaceLogo/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="SpaceLogo — استوديو الشعار">
+<meta name="twitter:description" content="أسود، ليموني، ونص ضخم. افتح الاستوديو وحرّك الشعار.">
+<meta name="twitter:image" content="https://octopusokhtobot.github.io/SpaceLogo/og.png">
 <link rel="manifest" href="manifest.webmanifest">
 <style>
+@font-face{font-family:'Space Grotesk';font-weight:300;src:url('fonts/SpaceGrotesk-300.woff2') format('woff2');}
+@font-face{font-family:'Space Grotesk';font-weight:500;src:url('fonts/SpaceGrotesk-500.woff2') format('woff2');}
 @font-face{font-family:'Space Grotesk';font-weight:700;src:url('fonts/SpaceGrotesk-700.woff2') format('woff2');}
+@font-face{font-family:'Oswald';font-weight:700;src:url('fonts/Oswald-700.woff2') format('woff2');}
 @font-face{font-family:'Outfit';font-weight:400;src:url('fonts/Outfit-400.woff2') format('woff2');}
 @font-face{font-family:'Outfit';font-weight:600;src:url('fonts/Outfit-600.woff2') format('woff2');}
 @font-face{font-family:'Tajawal';font-weight:800;src:url('fonts/Tajawal-800.woff2') format('woff2');}
+:root{--lime:#DEFF00;--ink:#080808;--cream:#FFFDE9;--peri:#8692F1;--navy:#0E0F1B;--x:50vw;--y:40vh;}
 *{box-sizing:border-box}
-body{margin:0;background:#070708;color:#f4f1ec;font-family:'Tajawal','Outfit',sans-serif}
-.wrap{max-width:980px;margin:0 auto;padding:48px 22px 80px}
-.kicker{font-family:'Space Grotesk',sans-serif;letter-spacing:.28em;color:#3ee0c5;font-size:12px;font-weight:700}
-h1{font-family:'Space Grotesk',sans-serif;font-size:clamp(64px,12vw,120px);line-height:.86;margin:14px 0 10px;letter-spacing:-.05em;text-transform:uppercase}
-h1 span{color:#ff6a1a}
-p.lead{max-width:560px;color:#a7a39c;font-size:18px;line-height:1.7}
-.cta{display:inline-flex;margin-top:26px;background:linear-gradient(180deg,#ff8a3d,#ff5a12);color:#1a0d06;text-decoration:none;font-weight:800;padding:16px 28px;border-radius:999px;box-shadow:0 14px 34px rgba(255,106,26,.35)}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:14px;margin-top:42px}
-.card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:24px;padding:18px 18px 14px}
-.card b{display:block;color:#3ee0c5;font-size:12px;letter-spacing:.14em;margin-bottom:8px}
-a.quiet{color:#ff8a3d}
+html,body{margin:0;background:var(--ink);color:var(--cream)}
+body{font-family:'Tajawal','Outfit',sans-serif;overflow-x:hidden}
+body::before{
+  content:"";position:fixed;inset:0;pointer-events:none;z-index:0;
+  background:radial-gradient(380px circle at var(--x) var(--y), rgba(222,255,0,.16), transparent 60%);
+}
+.nav,.hero,.band,.grid,.foot{position:relative;z-index:1}
+.nav{
+  display:flex;justify-content:space-between;align-items:center;
+  padding:22px 28px;letter-spacing:.22em;font-family:'Space Grotesk',sans-serif;font-weight:500;font-size:13px;
+}
+.nav b{color:var(--lime)}
+.nav a{color:var(--cream);text-decoration:none}
+.hero{padding:4vh 28px 8vh;max-width:1200px}
+.kicker{font-family:'Space Grotesk',sans-serif;color:var(--peri);letter-spacing:.42em;font-size:12px;font-weight:500}
+h1{
+  margin:10px 0 0;font-family:'Space Grotesk',sans-serif;font-weight:300;
+  font-size:clamp(76px,16vw,188px);line-height:.82;letter-spacing:-.06em;text-transform:uppercase;
+}
+h1 .heavy{font-weight:700;color:var(--lime);display:block;animation:rise .9s cubic-bezier(.16,1,.3,1) both}
+h1 .thin{display:block;animation:rise .9s .08s cubic-bezier(.16,1,.3,1) both}
+@keyframes rise{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:none}}
+.lead{max-width:540px;font-size:20px;line-height:1.7;color:#d9d6cc;margin:22px 0 28px}
+.cta{
+  display:inline-flex;align-items:center;gap:10px;
+  border:1px solid var(--cream);color:var(--cream);text-decoration:none;
+  padding:14px 26px;border-radius:999px;font-weight:800;position:relative;overflow:hidden;
+  transition:color .35s ease;
+}
+.cta i{position:relative;z-index:1;font-style:normal}
+.cta::before{
+  content:"";position:absolute;inset:0;background:var(--lime);transform:translateY(100%);
+  transition:transform .4s cubic-bezier(.16,1,.3,1);
+}
+.cta:hover{color:#111}
+.cta:hover::before{transform:translateY(0)}
+.marquee{background:var(--lime);color:#111;overflow:hidden;white-space:nowrap;border-block:0}
+.marquee span{
+  display:inline-block;padding:10px 0;font-family:'Oswald',sans-serif;font-weight:700;
+  letter-spacing:.18em;font-size:15px;animation:slide 18s linear infinite;
+}
+@keyframes slide{from{transform:translateX(-50%)}to{transform:translateX(0)}}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;padding:48px 28px;max-width:1100px}
+.card{
+  background:var(--navy);border-radius:22px;padding:22px 20px 18px;min-height:160px;
+  transform:translateY(12px);animation:rise .8s both;
+}
+.card:nth-child(2){animation-delay:.1s}
+.card:nth-child(3){animation-delay:.2s}
+.card em{font-family:'Space Grotesk',sans-serif;font-style:normal;color:var(--lime);letter-spacing:.16em;font-size:12px}
+.card p{margin:10px 0 0;color:#d5d8ea;line-height:1.6}
+.foot{display:flex;justify-content:space-between;gap:12px;padding:18px 28px 28px;color:#9a9a9a;font-size:13px}
+.foot a{color:var(--lime)}
 </style>
 </head>
 <body>
-<div class="wrap">
-  <div class="kicker">ROOM FOR A MARK</div>
-  <h1>SPACE<br><span>LOGO</span></h1>
-  <p class="lead">استوديو تحريك الشعار. الواجهة، الأزرار، ولوحات التحكم صارت على الثيم الداكن البرتقالي. الخطوط داخل مجلد <a class="quiet" href="https://github.com/OctopusOkhtobot/SpaceLogo/tree/main/fonts">fonts</a>.</p>
-  <a class="cta" href="tool.html">افتح واجهة التحريك</a>
-  <div class="grid">
-    <div class="card"><b>الألوان</b>أسود دافئ، زر برتقالي، لمسة تيل.</div>
-    <div class="card"><b>الأزرار</b>حبوب دائرية وأيقونات مربعة الحواف، مش الدوائر الرمادية القديمة.</div>
-    <div class="card"><b>خطوط الشعار</b>الخطوط القديمة كلها، ومعها Anton وOswald وRusso One وChanga وAlmarai.</div>
-  </div>
-</div>
+<nav class="nav"><span>SPACE<b>LOGO</b></span><a href="tool.html">ادخل الاستوديو</a></nav>
+<header class="hero">
+  <div class="kicker">BUILT FOR A MARK</div>
+  <h1><span class="thin">Space</span><span class="heavy">Logo</span></h1>
+  <p class="lead">استوديو تحريك الشعار. خلفية حبر، لمسة ليمون، ونص كبير خفيف بجانب وزن ثقيل. المشاهد جاهزة داخل صفحة التحريك، والأزرار تقدر تصير أزرار سيارة بنقرة.</p>
+  <a class="cta" href="tool.html"><i>افتح التحريك</i></a>
+</header>
+<div class="marquee" dir="ltr"><span>EMBER &nbsp;·&nbsp; CARBON &nbsp;·&nbsp; TIDE &nbsp;·&nbsp; AURORA &nbsp;·&nbsp; NIGHT TRACK &nbsp;·&nbsp; STUDIO &nbsp;·&nbsp; EMBER &nbsp;·&nbsp; CARBON &nbsp;·&nbsp; TIDE &nbsp;·&nbsp; AURORA &nbsp;·&nbsp; NIGHT TRACK &nbsp;·&nbsp; STUDIO &nbsp;·&nbsp;</span></div>
+<section class="grid">
+  <article class="card"><em>01 &nbsp; LIME</em><p>الأسود والليموني والكريمي. نفس عائلة التباين الحاد، مو نسخة من موقع ثاني.</p></article>
+  <article class="card"><em>02 &nbsp; TYPE</em><p>Space Grotesk خفيف وثقيل، وOswald للشريط المتحرك. خطوط الشعار لسه داخل مجلد fonts.</p></article>
+  <article class="card"><em>03 &nbsp; MOTION</em><p>ضوء يتبع المؤشر، الزر يمتلئ من تحت، وشريط يمشي بدون توقف.</p></article>
+</section>
+<footer class="foot">
+  <span>شارك الرابط على X</span>
+  <a href="https://octopusokhtobot.github.io/SpaceLogo/">octopusokhtobot.github.io/SpaceLogo</a>
+</footer>
+<script>
+document.addEventListener('pointermove', (e)=>{
+  document.documentElement.style.setProperty('--x', e.clientX + 'px');
+  document.documentElement.style.setProperty('--y', e.clientY + 'px');
+});
+</script>
 </body>
 </html>
