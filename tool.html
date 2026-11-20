@@ -4557,7 +4557,7 @@ audioInput.addEventListener('change', (e)=>{
   audioInput.value = '';
 });
 studioBtn.addEventListener('click', ()=>{
-  const open = mockDock.classList.toggle('open');
+  const open = document.getElementById('mockDock').classList.toggle('open');
   studioBtn.classList.toggle('active', open);
 });
 document.getElementById('studioFileBtn').addEventListener('click', ()=> videoInput.click());
