@@ -1231,13 +1231,135 @@ body[data-mock="studio"] #startBtn{
   background:#DEFF00 !important;color:#111 !important;border-color:transparent !important;
 }
 </style>
+
+<style id="studio-final">
+:root{--lime:#DEFF00;--ink:#080808;--cream:#FFFDE9;--peri:#8692F1;--navy:#0E0F1B;--sx:50vw;--sy:40vh}
+html,body{background:#080808 !important;color:#FFFDE9 !important;font-family:'Tajawal','Outfit','Space Grotesk',sans-serif !important}
+#studioTicker{position:fixed;top:0;left:0;right:0;height:26px;z-index:5000;background:#DEFF00;color:#111;overflow:hidden;white-space:nowrap;pointer-events:none}
+#studioTicker span{display:inline-block;font-family:'Oswald','Space Grotesk',sans-serif;font-weight:700;letter-spacing:.16em;font-size:13px;line-height:26px;animation:studioSlide 20s linear infinite}
+@keyframes studioSlide{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+#studioSpot{position:fixed;inset:0;z-index:4000;pointer-events:none;background:radial-gradient(440px circle at var(--sx) var(--sy), rgba(222,255,0,.18), transparent 62%)}
+#topbar,#iconRow{top:38px !important}
+#mockDock{top:88px !important;background:#0E0F1B !important;border:1px solid rgba(222,255,0,.35) !important}
+.mockSwatch.on{box-shadow:0 0 0 1px #DEFF00, 0 0 12px rgba(222,255,0,.55) !important}
+#introScreen,#formatEditor,#textDesigner{
+  background:radial-gradient(ellipse 55% 42% at 100% 0%, rgba(134,146,241,.38), transparent 62%), #080808 !important;
+  color:#FFFDE9 !important;
+}
+#introInner{padding-top:58px !important;max-width:860px !important}
+#introLogoWord{
+  font-family:'Space Grotesk',sans-serif !important;font-weight:300 !important;
+  font-size:clamp(68px,14vw,128px) !important;line-height:.82 !important;letter-spacing:-.065em !important;
+  color:#FFFDE9 !important;text-transform:uppercase;
+}
+#introLogoWord .thin{display:block;font-weight:300}
+#introLogoWord .heavy{display:block;font-weight:700;color:#DEFF00}
+#introInner h1,#formatTop h2,#textDesignerTop h2{
+  font-family:'Space Grotesk',sans-serif !important;color:#8692F1 !important;
+  font-size:13px !important;font-weight:500 !important;letter-spacing:.22em !important;text-transform:uppercase !important;
+}
+#introInner p,.introCard li,#formatHint,#textDesignerHint,#skipLine,.autoSplitSub{color:#d9d6cc !important;font-size:15px !important}
+.introCard,#formatControls,#autoSplitRow{
+  background:#0E0F1B !important;border:1px solid rgba(134,146,241,.3) !important;border-radius:22px !important;color:#FFFDE9 !important;
+}
+.introCard h2,.tdSectionLabel{color:#DEFF00 !important;font-family:'Space Grotesk',sans-serif !important;letter-spacing:.16em !important}
+#langToggle{border:1px solid rgba(255,253,233,.45) !important;border-radius:999px !important;background:transparent !important}
+#langToggle button{color:#FFFDE9 !important;font-family:'Space Grotesk','Tajawal',sans-serif !important}
+#langToggle button.active{background:#DEFF00 !important;color:#111 !important}
+#dropZone,#dropZoneSingle{border:1.5px dashed rgba(222,255,0,.65) !important;border-radius:22px !important;background:rgba(222,255,0,.04) !important}
+#dropZone:hover,#dropZone.hover,#dropZoneSingle:hover,#dropZoneSingle.hover{background:rgba(222,255,0,.1) !important;border-color:#DEFF00 !important}
+#textInput{background:#0E0F1B !important;color:#FFFDE9 !important;border:1px solid rgba(255,253,233,.25) !important;border-radius:16px !important;font-family:'Space Grotesk','Tajawal',sans-serif !important}
+#textInput:focus{border-color:#DEFF00 !important;box-shadow:0 0 0 4px rgba(222,255,0,.16) !important}
+.fontCard{background:#0E0F1B !important;border:1px solid rgba(255,253,233,.12) !important;border-radius:18px !important}
+.fontCard:hover{border-color:rgba(222,255,0,.6) !important;transform:translateY(-3px)}
+.fontCard.active{border-color:#DEFF00 !important;background:#12140c !important;box-shadow:0 0 0 1px #DEFF00, 0 12px 30px rgba(222,255,0,.16) !important}
+.fontCard .fcSample{color:#FFFDE9 !important}
+.fontCard .fcName{color:#c8c6bc !important}
+.fontCard .fcLang{background:#DEFF00 !important;color:#111 !important}
+.tdModeBtn{border-radius:16px !important;border:1px solid rgba(255,253,233,.2) !important;background:#0E0F1B !important;color:#FFFDE9 !important}
+.tdModeBtn.active{border-color:#DEFF00 !important;background:rgba(222,255,0,.12) !important;color:#FFFDE9 !important}
+#textPreviewWrap,#formatPreviewWrap{border:1px solid rgba(222,255,0,.28) !important;border-radius:22px !important;background:#050506 !important}
+#startBtn,.fmtBtn.primary,#textLogoBtn,.fmtBtn{
+  background-color:#080808 !important;
+  background-image:linear-gradient(#DEFF00,#DEFF00) !important;
+  background-repeat:no-repeat !important;
+  background-position:center bottom !important;
+  background-size:100% 0% !important;
+  color:#FFFDE9 !important;
+  border:1px solid #FFFDE9 !important;
+  border-radius:999px !important;
+  box-shadow:none !important;
+  font-family:'Space Grotesk','Tajawal',sans-serif !important;
+  transition:background-size .4s cubic-bezier(.16,1,.3,1), color .25s !important;
+}
+#startBtn:hover,.fmtBtn.primary:hover,#textLogoBtn:hover,.fmtBtn:hover,
+#startBtn:active,.fmtBtn.primary:active,#textLogoBtn:active,.fmtBtn:active{
+  background-size:100% 100% !important;color:#111 !important;border-color:#DEFF00 !important;
+}
+#textLogoBtn .tlSub,#textLogoBtn .tlCol{color:inherit !important}
+#resetBtn,#homeBtn,.iconBtn,.zoomBtn,#infoBtn{
+  position:relative !important;overflow:hidden !important;
+  width:36px !important;height:36px !important;border-radius:999px !important;
+  background-color:#080808 !important;
+  background-image:linear-gradient(#DEFF00,#DEFF00) !important;
+  background-repeat:no-repeat !important;
+  background-position:center bottom !important;
+  background-size:100% 0% !important;
+  color:#FFFDE9 !important;
+  border:1px solid rgba(255,253,233,.75) !important;
+  box-shadow:none !important;
+  font-family:'Space Grotesk',sans-serif !important;
+  transition:background-size .35s cubic-bezier(.16,1,.3,1), color .25s !important;
+}
+.zoomBtn,#infoBtn{width:26px !important;height:26px !important;font-size:13px !important}
+#resetBtn:hover,#homeBtn:hover,.iconBtn:hover,.zoomBtn:hover,#infoBtn:hover,
+.iconBtn.active,#resetBtn:active,#homeBtn:active,.zoomBtn:active{
+  background-size:100% 100% !important;color:#111 !important;border-color:#DEFF00 !important;
+}
+#resetBtn::before,#resetBtn::after,#homeBtn::before,#homeBtn::after,
+.iconBtn::before,.iconBtn::after,.zoomBtn::before,.zoomBtn::after,#infoBtn::before,#infoBtn::after{
+  content:none !important;display:none !important;animation:none !important;
+}
+#zoomPanel,#letterPanel,#zoomHint{
+  background:rgba(14,15,27,.9) !important;
+  border:1px solid rgba(222,255,0,.4) !important;
+  color:#FFFDE9 !important;
+  border-radius:999px !important;
+  box-shadow:none !important;
+}
+.panelRow span,#zoomLabel{color:#DEFF00 !important;font-family:'Space Grotesk',sans-serif !important;letter-spacing:.12em !important}
+#zoomPanel input[type=range]::-webkit-slider-runnable-track,
+#letterPanel input[type=range]::-webkit-slider-runnable-track,
+.panelRow input[type=range]::-webkit-slider-runnable-track{
+  height:2px !important;background:#DEFF00 !important;border-radius:2px !important;
+}
+#zoomPanel input[type=range]::-webkit-slider-thumb,
+#letterPanel input[type=range]::-webkit-slider-thumb,
+.panelRow input[type=range]::-webkit-slider-thumb{
+  background:#FFFDE9 !important;border:1px solid #111 !important;box-shadow:0 0 0 3px rgba(222,255,0,.35) !important;border-radius:999px !important;
+}
+.letter img{filter:drop-shadow(0 0 12px rgba(222,255,0,.35)) drop-shadow(0 8px 16px rgba(0,0,0,.55)) !important}
+.letter.selected img,.letter.dragging img{filter:drop-shadow(0 0 18px rgba(222,255,0,.7)) !important}
+#uploadDivider,.uploadDivider{color:#8692F1 !important;letter-spacing:.2em !important}
+#countLine,#formatStatus,#textDesignerStatus{color:#DEFF00 !important}
+body[data-mock="studio"] #blackBase{
+  background:
+    radial-gradient(ellipse 48% 36% at 85% 0%, rgba(134,146,241,.55), transparent 62%),
+    radial-gradient(ellipse 32% 24% at 6% 100%, rgba(222,255,0,.2), transparent 68%),
+    #080808 !important;
+}
+</style>
+
 </head>
-<body data-mock="ember">
+<body data-mock="studio">
+<div id="studioTicker" dir="ltr"><span>SPACE LOGO &nbsp;·&nbsp; LIME &nbsp;·&nbsp; TYPE &nbsp;·&nbsp; MOTION &nbsp;·&nbsp; STUDIO &nbsp;·&nbsp; MOVE THE MARK &nbsp;·&nbsp; SPACE LOGO &nbsp;·&nbsp; LIME &nbsp;·&nbsp; TYPE &nbsp;·&nbsp; MOTION &nbsp;·&nbsp; STUDIO &nbsp;·&nbsp; MOVE THE MARK &nbsp;·&nbsp; </span></div>
+<div id="studioSpot"></div>
+
 
 <div id="introScreen">
   <div id="introInner">
     <div id="introTopRow">
-      <div id="introLogoWord">SPACELOGO</div>
+      <div id="introLogoWord"><span class="thin">Space</span><span class="heavy">Logo</span></div>
       <div id="langToggle">
         <button id="langAr" type="button">العربية</button>
         <button id="langEn" type="button">English</button>
@@ -1424,12 +1546,12 @@ body[data-mock="studio"] #startBtn{
 <div id="blackBase"></div>
 
 <div id="mockDock" aria-label="مشاهد جاهزة">
-  <button type="button" class="mockSwatch on" data-mock="ember" title="جمرة"></button>
+  <button type="button" class="mockSwatch" data-mock="ember" title="جمرة"></button>
   <button type="button" class="mockSwatch" data-mock="carbon" title="كربون"></button>
   <button type="button" class="mockSwatch" data-mock="tide" title="موج"></button>
   <button type="button" class="mockSwatch" data-mock="aurora" title="شفق"></button>
   <button type="button" class="mockSwatch" data-mock="track" title="مسار ليلي"></button>
-  <button type="button" class="mockSwatch" data-mock="studio" title="استوديو"></button>
+  <button type="button" class="mockSwatch on" data-mock="studio" title="استوديو"></button>
 </div>
 <div id="mockPattern"></div>
 
@@ -3851,7 +3973,7 @@ document.querySelectorAll('.letter').forEach(el=>{
 // ---------- background media: photo or video ----------
 let bgMediaURL = null;
 
-let sceneMock = 'ember';
+let sceneMock = 'studio';
 function paintMock(name){
   sceneMock = name;
   document.body.dataset.mock = name;
@@ -4554,6 +4676,13 @@ requestAnimationFrame(renderLoop);
     navigator.serviceWorker.register('./sw.js', { scope: './' }).catch(()=>{ /* silent — app still works offline via local files */ });
   });
 })();
+</script>
+
+<script>
+document.addEventListener('pointermove', (e)=>{
+  document.documentElement.style.setProperty('--sx', e.clientX + 'px');
+  document.documentElement.style.setProperty('--sy', e.clientY + 'px');
+}, {passive:true});
 </script>
 </body>
 </html>
