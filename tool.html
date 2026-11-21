@@ -1210,7 +1210,7 @@ body.car-ui #letterPanel input[type=range]::-webkit-slider-thumb{
 
 
 <style>
-body[data-mock="studio"] #blackBase{
+body[data-mock="studio-off"] #blackBase{
   background:
     radial-gradient(ellipse 46% 36% at 88% 0%, rgba(134,146,241,.5), transparent 62%),
     radial-gradient(ellipse 30% 24% at 8% 100%, rgba(222,255,0,.18), transparent 70%),
@@ -1342,7 +1342,7 @@ html,body{background:#080808 !important;color:#FFFDE9 !important;font-family:'Ta
 .letter.selected img,.letter.dragging img{filter:drop-shadow(0 0 18px rgba(222,255,0,.7)) !important}
 #uploadDivider,.uploadDivider{color:#8692F1 !important;letter-spacing:.2em !important}
 #countLine,#formatStatus,#textDesignerStatus{color:#DEFF00 !important}
-body[data-mock="studio"] #blackBase{
+body[data-mock="studio-off"] #blackBase{
   background:
     radial-gradient(ellipse 48% 36% at 85% 0%, rgba(134,146,241,.55), transparent 62%),
     radial-gradient(ellipse 32% 24% at 6% 100%, rgba(222,255,0,.2), transparent 68%),
@@ -1354,7 +1354,7 @@ body[data-mock="studio"] #blackBase{
 <style id="award-ui">
 #studioTicker{display:none !important}
 #mockDock{display:none !important;flex-direction:row !important;align-items:center;gap:8px;left:14px !important;right:auto !important;top:86px !important;width:max-content;padding:8px 10px !important;border-radius:999px !important}
-#mockDock.open{display:flex !important}
+#mockDock,#mockDock.open{display:none !important}
 .studioFile{border:0;background:#DEFF00;color:#111;font-family:'Space Grotesk','Tajawal',sans-serif;font-weight:700;font-size:12px;letter-spacing:.04em;border-radius:999px;padding:6px 10px;cursor:pointer}
 .studioFile:active{transform:translateY(1px) scale(.97)}
 #fxRow{position:fixed;top:84px;right:14px;z-index:130;display:flex;gap:8px}
@@ -1451,7 +1451,7 @@ body.car-ui #zoomPanel input[type=range]::-webkit-slider-thumb,body.car-ui #lett
 </style>
 
 </head>
-<body data-mock="studio">
+<body>
 <div id="studioTicker" dir="ltr"><span>SPACE LOGO &nbsp;·&nbsp; LIME &nbsp;·&nbsp; TYPE &nbsp;·&nbsp; MOTION &nbsp;·&nbsp; STUDIO &nbsp;·&nbsp; MOVE THE MARK &nbsp;·&nbsp; SPACE LOGO &nbsp;·&nbsp; LIME &nbsp;·&nbsp; TYPE &nbsp;·&nbsp; MOTION &nbsp;·&nbsp; STUDIO &nbsp;·&nbsp; MOVE THE MARK &nbsp;·&nbsp; </span></div>
 <div id="studioSpot"></div>
 
@@ -1650,34 +1650,13 @@ body.car-ui #zoomPanel input[type=range]::-webkit-slider-thumb,body.car-ui #lett
   <div class="iconBtn" id="cloudBtn" title="Hang from clouds">☁</div>
   <label class="iconBtn" id="videoToggle" for="videoInput" title="Background photo or video">🎬</label>
   <div class="iconBtn" id="bgToggle" title="Background: black / transparent">⬛</div>
-  <div class="iconBtn" id="studioBtn" title="استوديو الخلفيات">▣</div>
-</div>
-<div id="fxRow">
-  <div class="iconBtn" id="geoBtn" title="ماندالا"><svg viewBox="0 0 64 64" width="30" height="30" aria-hidden="true"><circle cx="32" cy="32" r="6" fill="none" stroke="currentColor" stroke-width="1.4"/><circle cx="32" cy="32" r="14" fill="none" stroke="currentColor" stroke-width="1"/><circle cx="32" cy="32" r="22" fill="none" stroke="currentColor" stroke-width="1"/><path d="M32 6 L35 22 L32 18 L29 22 Z M32 58 L29 42 L32 46 L35 42 Z M6 32 L22 29 L18 32 L22 35 Z M58 32 L42 35 L46 32 L42 29 Z M12 12 L24 24 M52 12 L40 24 M12 52 L24 40 M52 52 L40 40" fill="currentColor" stroke="currentColor" stroke-width=".8"/></svg></div>
   <div class="iconBtn" id="waveBtn" title="موجة صوت من ملف">∿</div>
-  <div class="iconBtn" id="growBtn" title="حديقة داخل الشعار">✿</div>
-  <div class="iconBtn" id="traceBtn" title="خيط ضوء">／</div>
-  <div id="tracePick" aria-label="لون الضوء">
-    <button type="button" class="tSwatch on" data-trace="lime" title="ليموني"></button>
-    <button type="button" class="tSwatch" data-trace="ivory" title="عاجي"></button>
-    <button type="button" class="tSwatch" data-trace="peri" title="بنفسجي"></button>
-  </div>
 </div>
 <input type="file" id="audioInput" accept="audio/*" hidden>
 
 <input type="file" id="videoInput" accept="image/*,video/*" style="position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0;">
 <div id="blackBase"></div>
 
-<div id="mockDock" aria-label="خلفيات الاستوديو">
-  <button type="button" id="studioFileBtn" class="studioFile">ملفاتي</button>
-  <button type="button" class="mockSwatch" data-mock="ember" title="جمرة"></button>
-  <button type="button" class="mockSwatch" data-mock="carbon" title="كربون"></button>
-  <button type="button" class="mockSwatch" data-mock="tide" title="موج"></button>
-  <button type="button" class="mockSwatch" data-mock="aurora" title="شفق"></button>
-  <button type="button" class="mockSwatch" data-mock="track" title="مسار ليلي"></button>
-  <button type="button" class="mockSwatch on" data-mock="studio" title="استوديو"></button>
-</div>
-<div id="mockPattern"></div>
 
 <video id="bgVideo" autoplay loop muted playsinline></video>
 <img id="bgImage" alt="">
@@ -2396,12 +2375,6 @@ document.getElementById('askName').addEventListener('click', ()=>{
 });
 document.getElementById('askLogo').addEventListener('click', ()=>{
   document.getElementById('askGate').classList.add('off');
-});
-document.querySelectorAll('.tSwatch').forEach(btn=>{
-  btn.addEventListener('click', ()=>{
-    document.body.dataset.trace = btn.dataset.trace;
-    document.querySelectorAll('.tSwatch').forEach(b=>b.classList.toggle('on', b===btn));
-  });
 });
 
 textBackMain.addEventListener('click', closeTextDesigner);
@@ -4114,7 +4087,7 @@ document.querySelectorAll('.letter').forEach(el=>{
 // ---------- background media: photo or video ----------
 let bgMediaURL = null;
 
-let sceneMock = 'studio';
+let sceneMock = '';
 function paintMock(name){
   sceneMock = name;
   document.body.dataset.mock = name;
@@ -4646,15 +4619,8 @@ function startWave(file){
   waveAnalyser.connect(waveCtx.destination);
   waveAudio.play().catch(()=>{});
 }
-const geoBtn = document.getElementById('geoBtn');
 const waveBtn = document.getElementById('waveBtn');
-const growBtn = document.getElementById('growBtn');
-const traceBtn = document.getElementById('traceBtn');
-const studioBtn = document.getElementById('studioBtn');
 const audioInput = document.getElementById('audioInput');
-geoBtn.addEventListener('click', geoAll);
-growBtn.addEventListener('click', growAll);
-traceBtn.addEventListener('click', traceAll);
 waveBtn.addEventListener('click', ()=>{
   if(animMode === 'wave'){ stopSpecialModes(true); return; }
   audioInput.click();
@@ -4664,11 +4630,6 @@ audioInput.addEventListener('change', (e)=>{
   if(file) startWave(file);
   audioInput.value = '';
 });
-studioBtn.addEventListener('click', ()=>{
-  const open = document.getElementById('mockDock').classList.toggle('open');
-  studioBtn.classList.toggle('active', open);
-});
-document.getElementById('studioFileBtn').addEventListener('click', ()=> videoInput.click());
 
 launchBtn.addEventListener('click', launchAll);
 spinBtn.addEventListener('click', spinAll);

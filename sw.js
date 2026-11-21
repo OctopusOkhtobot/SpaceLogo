@@ -1,5 +1,5 @@
 /* Logo Animator — offline service worker (cache shell + fonts) */
-const CACHE = 'spacelogo-ui-v7';
+const CACHE = 'spacelogo-ui-v8';
 const PRECACHE = [
   './',
   './index.html',
