@@ -47,6 +47,17 @@
   @font-face{font-family:'Outfit';font-style:normal;font-weight:600;font-display:swap;src:url('fonts/Outfit-600.woff2') format('woff2');}
 
   @font-face{font-family:'Space Grotesk';font-style:normal;font-weight:300;font-display:swap;src:url('fonts/SpaceGrotesk-300.woff2') format('woff2');}
+  @font-face{font-family:'Syne';font-style:normal;font-weight:700;font-display:swap;src:url('fonts/Syne-700.woff2') format('woff2');}
+  @font-face{font-family:'Unbounded';font-style:normal;font-weight:700;font-display:swap;src:url('fonts/Unbounded-700.woff2') format('woff2');}
+  @font-face{font-family:'Archivo Black';font-style:normal;font-weight:400;font-display:swap;src:url('fonts/ArchivoBlack-400.woff2') format('woff2');}
+  @font-face{font-family:'Staatliches';font-style:normal;font-weight:400;font-display:swap;src:url('fonts/Staatliches-400.woff2') format('woff2');}
+  @font-face{font-family:'Bungee';font-style:normal;font-weight:400;font-display:swap;src:url('fonts/Bungee-400.woff2') format('woff2');}
+  @font-face{font-family:'Audiowide';font-style:normal;font-weight:400;font-display:swap;src:url('fonts/Audiowide-400.woff2') format('woff2');}
+  @font-face{font-family:'Abril Fatface';font-style:normal;font-weight:400;font-display:swap;src:url('fonts/AbrilFatface-400.woff2') format('woff2');}
+  @font-face{font-family:'Teko';font-style:normal;font-weight:700;font-display:swap;src:url('fonts/Teko-700.woff2') format('woff2');}
+  @font-face{font-family:'Righteous';font-style:normal;font-weight:400;font-display:swap;src:url('fonts/Righteous-400.woff2') format('woff2');}
+  @font-face{font-family:'League Spartan';font-style:normal;font-weight:700;font-display:swap;src:url('fonts/LeagueSpartan-700.woff2') format('woff2');}
+
 </style>
 <style>
   :root{
@@ -1642,7 +1653,7 @@ body.car-ui #zoomPanel input[type=range]::-webkit-slider-thumb,body.car-ui #lett
 </div>
 
 <div id="iconRow">
-  <div class="iconBtn" id="carThemeBtn" title="أزرار السيارة"><svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true"><path fill="currentColor" d="M6.2 15.2c0-.9.7-1.6 1.6-1.6h8.4c.9 0 1.6.7 1.6 1.6V17H6.2v-1.8zM7.4 11l1-2.7c.3-.7.9-1.1 1.6-1.1h4c.7 0 1.3.4 1.6 1.1l1 2.7H7.4zM8 17.2a1.3 1.3 0 1 0 0 2.6 1.3 1.3 0 0 0 0-2.6zm8 0a1.3 1.3 0 1 0 0 2.6 1.3 1.3 0 0 0 0-2.6z"/></svg></div>
+  <div class="iconBtn" id="carThemeBtn" title="Car controls"><svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true"><path fill="currentColor" d="M6.2 15.2c0-.9.7-1.6 1.6-1.6h8.4c.9 0 1.6.7 1.6 1.6V17H6.2v-1.8zM7.4 11l1-2.7c.3-.7.9-1.1 1.6-1.1h4c.7 0 1.3.4 1.6 1.1l1 2.7H7.4zM8 17.2a1.3 1.3 0 1 0 0 2.6 1.3 1.3 0 0 0 0-2.6zm8 0a1.3 1.3 0 1 0 0 2.6 1.3 1.3 0 0 0 0-2.6z"/></svg></div>
   <div class="iconBtn" id="soundToggle" title="Sound">🔊</div>
   <div class="iconBtn" id="launchBtn" title="Launch Mode">🚀</div>
   <div class="iconBtn spinBtn" id="spinBtn" title="Sequential axis spin — slow, then fast, settle">🔄</div>
@@ -1650,7 +1661,7 @@ body.car-ui #zoomPanel input[type=range]::-webkit-slider-thumb,body.car-ui #lett
   <div class="iconBtn" id="cloudBtn" title="Hang from clouds">☁</div>
   <label class="iconBtn" id="videoToggle" for="videoInput" title="Background photo or video">🎬</label>
   <div class="iconBtn" id="bgToggle" title="Background: black / transparent">⬛</div>
-  <div class="iconBtn" id="waveBtn" title="موجة صوت من ملف">∿</div>
+  <div class="iconBtn" id="waveBtn" title="Sound wave from a file">∿</div>
 </div>
 <input type="file" id="audioInput" accept="audio/*" hidden>
 
@@ -1890,6 +1901,10 @@ function applyLang(lang){
   });
   langArBtn.classList.toggle('active', lang === 'ar');
   langEnBtn.classList.toggle('active', lang === 'en');
+  const car = document.getElementById('carThemeBtn');
+  const wave = document.getElementById('waveBtn');
+  if(car) car.title = lang === 'ar' ? 'أزرار السيارة' : 'Car controls';
+  if(wave) wave.title = lang === 'ar' ? 'موجة صوت من ملف' : 'Sound wave from a file';
   updateCountLine();
 }
 langArBtn.addEventListener('click', ()=> applyLang('ar'));
@@ -2057,7 +2072,17 @@ const LOGO_FONTS = {
     { id: 'blackops', family: 'Black Ops One', weight: 400, sample: 'MARK', label: 'Black Ops' },
     { id: 'anton', family: 'Anton', weight: 400, sample: 'RANGE', label: 'Anton' },
     { id: 'oswald', family: 'Oswald', weight: 700, sample: 'MOTION', label: 'Oswald' },
-    { id: 'russo', family: 'Russo One', weight: 400, sample: 'ORBIT', label: 'Russo One' }
+    { id: 'russo', family: 'Russo One', weight: 400, sample: 'ORBIT', label: 'Russo One' },
+    { id: 'syne', family: 'Syne', weight: 700, sample: 'STUDIO', label: 'Syne' },
+    { id: 'unbounded', family: 'Unbounded', weight: 700, sample: 'WIDE', label: 'Unbounded' },
+    { id: 'archivo', family: 'Archivo Black', weight: 400, sample: 'BLACK', label: 'Archivo Black' },
+    { id: 'staat', family: 'Staatliches', weight: 400, sample: 'POSTER', label: 'Staatliches' },
+    { id: 'bungee', family: 'Bungee', weight: 400, sample: 'BLOCK', label: 'Bungee' },
+    { id: 'audio', family: 'Audiowide', weight: 400, sample: 'NEON', label: 'Audiowide' },
+    { id: 'abril', family: 'Abril Fatface', weight: 400, sample: 'Script', label: 'Abril' },
+    { id: 'teko', family: 'Teko', weight: 700, sample: 'SPEED', label: 'Teko' },
+    { id: 'right', family: 'Righteous', weight: 400, sample: 'ROUND', label: 'Righteous' },
+    { id: 'spartan', family: 'League Spartan', weight: 700, sample: 'CLEAN', label: 'Spartan' }
   ],
   ar: [
     { id: 'cairo', family: 'Cairo', weight: 900, sample: 'عنوان', label: 'Cairo' },
@@ -3403,7 +3428,7 @@ homeBtn.addEventListener('click', ()=>{
   }
 });
 
-applyLang((navigator.language || '').toLowerCase().startsWith('ar') ? 'ar' : currentLang);
+applyLang('en');
 
 function initApp(LETTERS){
 

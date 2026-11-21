@@ -1,18 +1,18 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="en" dir="ltr">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>SpaceLogo — استوديو الشعار</title>
-<meta name="description" content="حرّك شعارك على خلفية سوداء وليمونية. مشاهد جاهزة، خطوط عرض، وأزرار تتحول لشكل سيارة.">
+<title>SpaceLogo — Logo studio</title>
+<meta name="description" content="Turn a name into a logo, or animate a logo you already have. Designed with Grok.">
 <meta property="og:type" content="website">
-<meta property="og:title" content="SpaceLogo — استوديو الشعار">
-<meta property="og:description" content="أسود، ليموني، ونص ضخم. افتح الاستوديو وحرّك الشعار.">
+<meta property="og:title" content="SpaceLogo — Logo studio">
+<meta property="og:description" content="Ink, lime, and oversized type. Open the studio and move the mark.">
 <meta property="og:url" content="https://octopusokhtobot.github.io/SpaceLogo/">
 <meta property="og:image" content="https://octopusokhtobot.github.io/SpaceLogo/og.png">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="SpaceLogo — استوديو الشعار">
-<meta name="twitter:description" content="أسود، ليموني، ونص ضخم. افتح الاستوديو وحرّك الشعار.">
+<meta name="twitter:title" content="SpaceLogo — Logo studio">
+<meta name="twitter:description" content="Ink, lime, and oversized type. Open the studio and move the mark.">
 <meta name="twitter:image" content="https://octopusokhtobot.github.io/SpaceLogo/og.png">
 <link rel="manifest" href="manifest.webmanifest">
 <style>
@@ -26,54 +26,31 @@
 :root{--lime:#DEFF00;--ink:#080808;--cream:#FFFDE9;--peri:#8692F1;--navy:#0E0F1B;--x:50vw;--y:40vh;}
 *{box-sizing:border-box}
 html,body{margin:0;background:var(--ink);color:var(--cream)}
-body{font-family:'Tajawal','Outfit',sans-serif;overflow-x:hidden}
-body::before{
-  content:"";position:fixed;inset:0;pointer-events:none;z-index:0;
-  background:radial-gradient(380px circle at var(--x) var(--y), rgba(222,255,0,.16), transparent 60%);
-}
+body{font-family:'Outfit','Tajawal',sans-serif;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;background:radial-gradient(380px circle at var(--x) var(--y), rgba(222,255,0,.16), transparent 60%)}
 .nav,.hero,.band,.grid,.foot{position:relative;z-index:1}
-.nav{
-  display:flex;justify-content:space-between;align-items:center;
-  padding:22px 28px;letter-spacing:.22em;font-family:'Space Grotesk',sans-serif;font-weight:500;font-size:13px;
-}
+.nav{display:flex;justify-content:space-between;align-items:center;padding:22px 28px;letter-spacing:.22em;font-family:'Space Grotesk',sans-serif;font-weight:500;font-size:13px}
 .nav b{color:var(--lime)}
-.nav a{color:var(--cream);text-decoration:none}
+.nav a,.langBtn{color:var(--cream);text-decoration:none;background:transparent;border:1px solid rgba(255,253,233,.4);border-radius:999px;padding:8px 14px;cursor:pointer;font:inherit;letter-spacing:.12em}
+.nav .right{display:flex;gap:8px;align-items:center}
 .hero{padding:4vh 28px 8vh;max-width:1200px}
 .kicker{font-family:'Space Grotesk',sans-serif;color:var(--peri);letter-spacing:.42em;font-size:12px;font-weight:500}
-h1{
-  margin:10px 0 0;font-family:'Space Grotesk',sans-serif;font-weight:300;
-  font-size:clamp(76px,16vw,188px);line-height:.82;letter-spacing:-.06em;text-transform:uppercase;
-}
+h1{margin:10px 0 0;font-family:'Space Grotesk',sans-serif;font-weight:300;font-size:clamp(76px,16vw,188px);line-height:.82;letter-spacing:-.06em;text-transform:uppercase}
 h1 .heavy{font-weight:700;color:var(--lime);display:block;animation:rise .9s cubic-bezier(.16,1,.3,1) both}
 h1 .thin{display:block;animation:rise .9s .08s cubic-bezier(.16,1,.3,1) both}
 @keyframes rise{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:none}}
-.lead{max-width:540px;font-size:20px;line-height:1.7;color:#d9d6cc;margin:22px 0 28px}
-.cta{
-  display:inline-flex;align-items:center;gap:10px;
-  border:1px solid var(--cream);color:var(--cream);text-decoration:none;
-  padding:14px 26px;border-radius:999px;font-weight:800;position:relative;overflow:hidden;
-  transition:color .35s ease;
-}
+.lead{max-width:560px;font-size:20px;line-height:1.7;color:#d9d6cc;margin:22px 0 28px}
+.cta{display:inline-flex;align-items:center;gap:10px;border:1px solid var(--cream);color:var(--cream);text-decoration:none;padding:14px 26px;border-radius:999px;font-weight:800;position:relative;overflow:hidden;transition:color .35s ease}
 .cta i{position:relative;z-index:1;font-style:normal}
-.cta::before{
-  content:"";position:absolute;inset:0;background:var(--lime);transform:translateY(100%);
-  transition:transform .4s cubic-bezier(.16,1,.3,1);
-}
+.cta::before{content:"";position:absolute;inset:0;background:var(--lime);transform:translateY(100%);transition:transform .4s cubic-bezier(.16,1,.3,1)}
 .cta:hover{color:#111}
 .cta:hover::before{transform:translateY(0)}
-.marquee{background:var(--lime);color:#111;overflow:hidden;white-space:nowrap;border-block:0}
-.marquee span{
-  display:inline-block;padding:10px 0;font-family:'Oswald',sans-serif;font-weight:700;
-  letter-spacing:.18em;font-size:15px;animation:slide 18s linear infinite;
-}
+.marquee{background:var(--lime);color:#111;overflow:hidden;white-space:nowrap}
+.marquee span{display:inline-block;padding:10px 0;font-family:'Oswald',sans-serif;font-weight:700;letter-spacing:.18em;font-size:15px;animation:slide 18s linear infinite}
 @keyframes slide{from{transform:translateX(-50%)}to{transform:translateX(0)}}
 .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;padding:48px 28px;max-width:1100px}
-.card{
-  background:var(--navy);border-radius:22px;padding:22px 20px 18px;min-height:160px;
-  transform:translateY(12px);animation:rise .8s both;
-}
-.card:nth-child(2){animation-delay:.1s}
-.card:nth-child(3){animation-delay:.2s}
+.card{background:var(--navy);border-radius:22px;padding:22px 20px 18px;min-height:160px;animation:rise .8s both}
+.card:nth-child(2){animation-delay:.1s}.card:nth-child(3){animation-delay:.2s}
 .card em{font-family:'Space Grotesk',sans-serif;font-style:normal;color:var(--lime);letter-spacing:.16em;font-size:12px}
 .card p{margin:10px 0 0;color:#d5d8ea;line-height:1.6}
 .foot{display:flex;justify-content:space-between;gap:12px;padding:18px 28px 28px;color:#9a9a9a;font-size:13px}
@@ -81,24 +58,67 @@ h1 .thin{display:block;animation:rise .9s .08s cubic-bezier(.16,1,.3,1) both}
 </style>
 </head>
 <body>
-<nav class="nav"><span>SPACE<b>LOGO</b></span><a href="tool.html">ادخل الاستوديو</a></nav>
+<nav class="nav">
+  <span>SPACE<b>LOGO</b></span>
+  <div class="right">
+    <button type="button" class="langBtn" id="langSwitch">العربية</button>
+    <a href="tool.html" id="navEnter">Open studio</a>
+  </div>
+</nav>
 <header class="hero">
-  <div class="kicker">BUILT FOR A MARK</div>
+  <div class="kicker" id="kicker">BUILT FOR A MARK</div>
   <h1><span class="thin">Space</span><span class="heavy">Logo</span></h1>
-  <p class="lead">استوديو تحريك الشعار. خلفية حبر، لمسة ليمون، ونص كبير خفيف بجانب وزن ثقيل. المشاهد جاهزة داخل صفحة التحريك، والأزرار تقدر تصير أزرار سيارة بنقرة.</p>
-  <a class="cta" href="tool.html"><i>افتح التحريك</i></a>
+  <p class="lead" id="lead">A logo studio. Write your name, or bring a logo you already have, and move it. Ink, lime, and type that changes weight. Rocket, clouds, a sound wave, and controls that turn into car buttons.</p>
+  <a class="cta" href="tool.html"><i id="cta">Open the stage</i></a>
 </header>
-<div class="marquee" dir="ltr"><span>EMBER &nbsp;·&nbsp; CARBON &nbsp;·&nbsp; TIDE &nbsp;·&nbsp; AURORA &nbsp;·&nbsp; NIGHT TRACK &nbsp;·&nbsp; STUDIO &nbsp;·&nbsp; EMBER &nbsp;·&nbsp; CARBON &nbsp;·&nbsp; TIDE &nbsp;·&nbsp; AURORA &nbsp;·&nbsp; NIGHT TRACK &nbsp;·&nbsp; STUDIO &nbsp;·&nbsp;</span></div>
+<div class="marquee" dir="ltr"><span>ROCKET &nbsp;·&nbsp; CLOUDS &nbsp;·&nbsp; SPIN &nbsp;·&nbsp; SOUND WAVE &nbsp;·&nbsp; CAR CONTROLS &nbsp;·&nbsp; ROCKET &nbsp;·&nbsp; CLOUDS &nbsp;·&nbsp; SPIN &nbsp;·&nbsp; SOUND WAVE &nbsp;·&nbsp; CAR CONTROLS &nbsp;·&nbsp;</span></div>
 <section class="grid">
-  <article class="card"><em>01 &nbsp; LIME</em><p>الأسود والليموني والكريمي. نفس عائلة التباين الحاد، مو نسخة من موقع ثاني.</p></article>
-  <article class="card"><em>02 &nbsp; TYPE</em><p>Space Grotesk خفيف وثقيل، وOswald للشريط المتحرك. خطوط الشعار لسه داخل مجلد fonts.</p></article>
-  <article class="card"><em>03 &nbsp; MOTION</em><p>ضوء يتبع المؤشر، الزر يمتلئ من تحت، وشريط يمشي بدون توقف.</p></article>
+  <article class="card"><em>01 &nbsp; NAME</em><p id="c1">Start in English. Switch to Arabic only if you choose it. The name field stays empty until you type.</p></article>
+  <article class="card"><em>02 &nbsp; TYPE</em><p id="c2">Twenty display fonts in the fonts folder, English and Arabic, ready for a mark.</p></article>
+  <article class="card"><em>03 &nbsp; MOTION</em><p id="c3">A light follows the cursor. Buttons fill. The stage ticks when you press a control.</p></article>
 </section>
 <footer class="foot">
-  <span>شارك الرابط على X</span>
+  <span id="share">Share the link on X</span>
   <a href="https://octopusokhtobot.github.io/SpaceLogo/">octopusokhtobot.github.io/SpaceLogo</a>
 </footer>
 <script>
+const copy = {
+  en: {
+    nav: 'Open studio', cta: 'Open the stage', kicker: 'BUILT FOR A MARK',
+    lead: 'A logo studio. Write your name, or bring a logo you already have, and move it. Ink, lime, and type that changes weight. Rocket, clouds, a sound wave, and controls that turn into car buttons.',
+    c1: 'Start in English. Switch to Arabic only if you choose it. The name field stays empty until you type.',
+    c2: 'Twenty display fonts in the fonts folder, English and Arabic, ready for a mark.',
+    c3: 'A light follows the cursor. Buttons fill. The stage ticks when you press a control.',
+    share: 'Share the link on X', lang: 'العربية'
+  },
+  ar: {
+    nav: 'ادخل الاستوديو', cta: 'افتح التحريك', kicker: 'مصمّم لعلامة',
+    lead: 'استوديو تحريك الشعار. اكتب اسمك، أو ارفع لوغو عندك وحرّكه. حبر وليمون ونص يغيّر وزنه. صاروخ، غيوم، موجة صوت، وأزرار تصير كبسات سيارة.',
+    c1: 'يبدأ بالإنجليزية. العربي يظهر فقط إذا اخترته. خانة الاسم تبقى فاضية لين تكتب.',
+    c2: 'عشرون خط عرض في مجلد الخطوط، إنجليزي وعربي، جاهزين للعلامة.',
+    c3: 'ضوء يتبع المؤشر. الزر يمتلئ. صفحة التحريك تعطي طقة مع كل ضغطة.',
+    share: 'شارك الرابط على X', lang: 'English'
+  }
+};
+let lang = 'en';
+function paint(){
+  const t = copy[lang];
+  document.documentElement.lang = lang;
+  document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+  document.getElementById('navEnter').textContent = t.nav;
+  document.getElementById('cta').textContent = t.cta;
+  document.getElementById('kicker').textContent = t.kicker;
+  document.getElementById('lead').textContent = t.lead;
+  document.getElementById('c1').textContent = t.c1;
+  document.getElementById('c2').textContent = t.c2;
+  document.getElementById('c3').textContent = t.c3;
+  document.getElementById('share').textContent = t.share;
+  document.getElementById('langSwitch').textContent = t.lang;
+}
+document.getElementById('langSwitch').addEventListener('click', ()=>{
+  lang = lang === 'en' ? 'ar' : 'en';
+  paint();
+});
 document.addEventListener('pointermove', (e)=>{
   document.documentElement.style.setProperty('--x', e.clientX + 'px');
   document.documentElement.style.setProperty('--y', e.clientY + 'px');

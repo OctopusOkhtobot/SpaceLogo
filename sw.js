@@ -1,10 +1,20 @@
 /* Logo Animator — offline service worker (cache shell + fonts) */
-const CACHE = 'spacelogo-ui-v8';
+const CACHE = 'spacelogo-ui-v9';
 const PRECACHE = [
   './',
   './index.html',
   './og.png',
   './fonts/SpaceGrotesk-300.woff2',
+  './fonts/LeagueSpartan-700.woff2',
+  './fonts/Righteous-400.woff2',
+  './fonts/Teko-700.woff2',
+  './fonts/AbrilFatface-400.woff2',
+  './fonts/Audiowide-400.woff2',
+  './fonts/Bungee-400.woff2',
+  './fonts/Staatliches-400.woff2',
+  './fonts/ArchivoBlack-400.woff2',
+  './fonts/Unbounded-700.woff2',
+  './fonts/Syne-700.woff2',
   './sw.js',
   './fonts/Orbitron-700.woff2',
   './fonts/Orbitron-900.woff2',
